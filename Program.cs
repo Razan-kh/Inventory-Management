@@ -13,17 +13,16 @@
                 ");
                     string ConsoleChoice = Console.ReadLine();
                     int choice = Convert.ToInt32(ConsoleChoice);
-                
                     switch (choice)
                     {
                         case 2:
-                            MainClass.ViewProducts(i);
+                            MainClass.ViewProduct(i);
                             break;
                     }
                 }
             }
         }
-        private static void ViewProducts(Inventory i)
+              private static void ViewProduct(Inventory i)
         {
              i.view();
         }
