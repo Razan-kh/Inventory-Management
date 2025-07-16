@@ -7,7 +7,8 @@ namespace InventoryManagement
     class Inventory
     {
         List<Product> products = new List<Product>();
-        public void view()
+        
+        public void View()
         {   
             foreach (Product product in products)
            {
