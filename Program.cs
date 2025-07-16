@@ -1,7 +1,13 @@
-﻿namespace InventoryManagement
-{
+﻿namespace InventoryManagement;
+
     class MainClass
     {
+    enum MainMenuOptions
+    {
+        Exit=0,
+        ViewProduct=2,
+        }
+
         public static void Main()
         {
             {
@@ -11,21 +17,21 @@
                     Console.WriteLine(@"choose the operation :
                     2 : View all products
                 ");
-                    string ConsoleChoice = Console.ReadLine();
-                    int choice = Convert.ToInt32(ConsoleChoice);
-                    switch (choice)
-                    {
-                        case 2:
-                            MainClass.ViewProduct(i);
-                            break;
-                    }
+                string consoleChoice = Console.ReadLine();
+                if (!int.TryParse(consoleChoice, out int numericChoice))
+                {
+                    Console.WriteLine("Invalid option. Please try again.");
+                    continue;
+                }
+                MainMenuOptions choice = (MainMenuOptions)numericChoice;
+                switch (choice)
+                {
+                    case MainMenuOptions.ViewProduct:
+                        i.View();
+                        break;
+                }
                 }
             }
         }
-              private static void ViewProduct(Inventory i)
-        {
-             i.view();
-        }
     }
 
-}
