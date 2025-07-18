@@ -13,4 +13,12 @@ namespace InventoryManagement;
             Product p = new Product { Name = name, Price = price, Quantity = quantity };
             products.Add(p);
         }
+        public void View()
+        {   
+            foreach (Product product in products)
+           {
+                Console.WriteLine(@$"{product.Name} {product.Price} {product.Quantity}");
+           }
+        }
     }
+    
