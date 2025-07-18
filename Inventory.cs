@@ -10,7 +10,7 @@ namespace InventoryManagement;
         public void EditProduct()
         {
             Console.Write("Enter the name of the product to edit: ");
-            string name = Console.ReadLine()?.Trim() ?? "";
+            string name = Console.ReadLine()?.Trim() ?? string.Empty;
 
             Product? product = products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
