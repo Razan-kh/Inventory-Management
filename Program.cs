@@ -1,4 +1,5 @@
 ﻿namespace InventoryManagement;
+
     class MainClass
     {
         enum MainMenuOptions
@@ -6,7 +7,7 @@
             Exit,
             AddProduct,
         }
-        
+
         public static void Main()
         {
             {
