@@ -5,9 +5,10 @@
 
     enum MainMenuOptions
     {
-        Exit=0,
-        AddProduct=1,
-        ViewProduct=2,
+        Exit = 0,
+        AddProduct = 1,
+        ViewProduct = 2,
+        EditProduct=3,
         }
 
         public static void Main()
@@ -19,6 +20,7 @@
                     Console.WriteLine(@"choose the operation :
                     1 : Add a product
                     2 : View all products
+                    3-Edit a product
                     ");
                     string consoleChoice = Console.ReadLine();
                     if (!int.TryParse(consoleChoice, out int numericChoice))
@@ -36,6 +38,9 @@
                     case MainMenuOptions.ViewProduct:
                         i.View();
                         break;
+                    case MainMenuOptions.EditProduct:
+                    i.EditProduct();
+                    break;
                     }
                 }
             }
