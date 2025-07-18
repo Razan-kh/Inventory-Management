@@ -14,7 +14,7 @@ namespace InventoryManagement;
 
             Product? product = products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
-            if (product == null)
+            if (product is null)
             {
                 Console.WriteLine("Product not found.");
                 return;
