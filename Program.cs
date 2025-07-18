@@ -5,6 +5,7 @@
         enum MainMenuOptions
         {
             Exit,
+            AddProduct,
         }
 
         public static void Main()
@@ -14,20 +15,53 @@
                 while (true)
                 {
                     Console.WriteLine(@"choose the operation :
-                ");
-                string consoleChoice = Console.ReadLine();
-                if (!int.TryParse(consoleChoice, out int numericChoice))
-                {
-                    Console.WriteLine("Invalid option. Please try again.");
-                    continue;
-                }
-                MainMenuOptions choice = (MainMenuOptions)numericChoice;
-                switch (choice)
-                {
-
-                }
+                    1 : Add a product
+                    ");
+                    string consoleChoice = Console.ReadLine();
+                    if (!int.TryParse(consoleChoice, out int numericChoice))
+                    {
+                        Console.WriteLine("Invalid option. Please try again.");
+                        continue;
+                    }
+                    MainMenuOptions choice = (MainMenuOptions)numericChoice;
+                    
+                    switch (choice)
+                    {
+                        case MainMenuOptions.AddProduct:
+                            AddingProduct(i);
+                            break;
+                    }
                 }
             }
+        }
+        
+         static void AddingProduct(Inventory i)
+        {
+            Console.WriteLine("Enter the product name");
+            string name = Console.ReadLine();
+            while (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+                name = Console.ReadLine();
+            }
+            Console.WriteLine("Enter the product price");
+            string consolePrice = Console.ReadLine();
+            int price;
+            while (!int.TryParse(consolePrice, out price) || price < 0)
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+                consolePrice = Console.ReadLine();
+            }
+           
+            Console.WriteLine("Enter the product quantity");
+            string consoleQuantity = Console.ReadLine();
+            int quantity;
+            while (!int.TryParse(consoleQuantity, out quantity) || quantity < 0)
+            {
+                Console.WriteLine("Invalid option. Please try again.");
+                consoleQuantity = Console.ReadLine();
+            }
+            i.AddProduct(name, quantity, price);
         }
       
     }
