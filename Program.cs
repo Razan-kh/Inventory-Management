@@ -28,6 +28,10 @@
                     case MainMenuOptions.SearchProduct:
                         inventory.SearchProduct();
                         break;
+
+                    case MainMenuOptions.Exit:
+                        Console.WriteLine("Exiting the application");
+                        return; 
                     }
                 }
             }
