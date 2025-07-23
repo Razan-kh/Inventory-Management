@@ -2,7 +2,6 @@
 
     class MainClass
     {
-
         public static void Main()
         {
             {
@@ -10,7 +9,7 @@
                 Inventory inventory = new Inventory(products);
                 while (true)
                 {
-                MainMenuOptions choice = UserInterfaceClass.PrintMenu(); 
+                MainMenuOptions choice = UserInterfaceClass.PrintMenu();
                 switch (choice)
                 {
                     case MainMenuOptions.AddProduct:
@@ -20,8 +19,11 @@
                         inventory.View();
                         break;
                     case MainMenuOptions.EditProduct:
-                    inventory.EditProduct();
-                    break;
+                        inventory.EditProduct();
+                        break;
+                    case MainMenuOptions.DeleteProduct:
+                        inventory.DeleteProduct();
+                        break;
                     }
                 }
             }
