@@ -3,50 +3,31 @@
     class MainClass
     {
 
-    enum MainMenuOptions
-    {
-        Exit = 0,
-        AddProduct = 1,
-        ViewProduct = 2,
-        EditProduct=3,
-        }
-
         public static void Main()
         {
             {
-                Inventory i = new Inventory();
+                List<Product> products = new List<Product>();
+                Inventory inventory = new Inventory(products);
                 while (true)
                 {
-                    Console.WriteLine(@"choose the operation :
-                    1 : Add a product
-                    2 : View all products
-                    3-Edit a product
-                    ");
-                    string consoleChoice = Console.ReadLine();
-                    if (!int.TryParse(consoleChoice, out int numericChoice))
-                    {
-                        Console.WriteLine("Invalid option. Please try again.");
-                        continue;
-                    }
-                    MainMenuOptions choice = (MainMenuOptions)numericChoice;
-
+                MainMenuOptions choice = UserInterfaceClass.PrintMenu(); 
                 switch (choice)
                 {
                     case MainMenuOptions.AddProduct:
-                        AddingProduct(i);
+                        AddingProduct(inventory);
                         break;
                     case MainMenuOptions.ViewProduct:
-                        i.View();
+                        inventory.View();
                         break;
                     case MainMenuOptions.EditProduct:
-                    i.EditProduct();
+                    inventory.EditProduct();
                     break;
                     }
                 }
             }
         }
         
-         static void AddingProduct(Inventory i)
+         static void AddingProduct(Inventory inventory)
         {
             Console.WriteLine("Enter the product name");
             string name = Console.ReadLine();
@@ -72,7 +53,7 @@
                 Console.WriteLine("Invalid option. Please try again.");
                 consoleQuantity = Console.ReadLine();
             }
-            i.AddProduct(name, quantity, price);
+            inventory.AddProduct(name, quantity, price);
         }
     }
 

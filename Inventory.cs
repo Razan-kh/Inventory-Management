@@ -5,16 +5,20 @@ using System.ComponentModel;
 namespace InventoryManagement;
     class Inventory
     {
-        List<Product> products = new List<Product>();
+        private List<Product> _products;
+        public Inventory(List<Product> products)
+        {
+          _products = products;
+        }
 
         public void AddProduct(string name, int quantity, int price)
-        {
-            Product p = new Product { Name = name, Price = price, Quantity = quantity };
-            products.Add(p);
-        }
+    {
+        Product p = new Product { Name = name, Price = price, Quantity = quantity };
+        _products.Add(p);
+    }
         public void View()
         {   
-            foreach (Product product in products)
+            foreach (Product product in _products)
            {
                 Console.WriteLine(@$"{product.Name} {product.Price} {product.Quantity}");
            }
@@ -25,7 +29,7 @@ namespace InventoryManagement;
             Console.Write("Enter the name of the product to edit: ");
             string name = Console.ReadLine()?.Trim() ?? "";
 
-            Product? product = products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            Product? product = _products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
             if (product == null)
             {
