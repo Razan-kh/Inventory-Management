@@ -4,8 +4,8 @@
     {
     enum MainMenuOptions
     {
-        Exit = 0,
-        DeleteProduct=4
+        Exit          = 0,
+        DeleteProduct = 4
         }
 
         public static void Main()
