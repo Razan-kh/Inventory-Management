@@ -10,7 +10,6 @@ class Inventory
        
         public void SearchProduct()
         {
-        products.Add(new Product { Name = "F", Price = 5, Quantity = 7 });
             Console.Write("Enter the name of the product to search: ");
             string name = Console.ReadLine()?.Trim() ?? "";
 
