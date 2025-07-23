@@ -24,6 +24,10 @@
                     case MainMenuOptions.DeleteProduct:
                         inventory.DeleteProduct();
                         break;
+
+                    case MainMenuOptions.SearchProduct:
+                        inventory.SearchProduct();
+                        break;
                     }
                 }
             }

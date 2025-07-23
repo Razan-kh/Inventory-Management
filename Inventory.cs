@@ -74,4 +74,20 @@ class Inventory
 
         _products.Remove(product);
     }
+    public void SearchProduct()
+    {
+        Console.Write("Enter the name of the product to search: ");
+        string name = Console.ReadLine()?.Trim() ?? "";
+
+        Product? product = _products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+        if (product is not null)
+        {
+            Console.WriteLine(product);
+        }
+        else
+        {
+            Console.WriteLine("Product not found.");
+        }
+    }
 }
