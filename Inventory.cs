@@ -27,11 +27,11 @@ namespace InventoryManagement;
         public void EditProduct()
         {
             Console.Write("Enter the name of the product to edit: ");
-            string name = Console.ReadLine()?.Trim() ?? "";
+            string name = Console.ReadLine()?.Trim() ?? string.Empty;
 
             Product? product = _products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
-            if (product == null)
+            if (product is null)
             {
                 Console.WriteLine("Product not found.");
                 return;
