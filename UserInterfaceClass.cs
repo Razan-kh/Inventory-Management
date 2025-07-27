@@ -1,6 +1,6 @@
 namespace InventoryManagement;
 
-class UserInterfaceClass
+class UserInterface
 {
     public static MainMenuOptions PrintMenu()
     {
